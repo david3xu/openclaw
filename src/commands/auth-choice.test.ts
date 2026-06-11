@@ -6,7 +6,6 @@ import chutesPlugin from "../../extensions/chutes/index.js";
 import cloudflareAiGatewayPlugin from "../../extensions/cloudflare-ai-gateway/index.js";
 import googlePlugin from "../../extensions/google/index.js";
 import huggingfacePlugin from "../../extensions/huggingface/index.js";
-import kimiCodingPlugin from "../../extensions/kimi-coding/index.js";
 import minimaxPlugin from "../../extensions/minimax/index.js";
 import mistralPlugin from "../../extensions/mistral/index.js";
 import moonshotPlugin from "../../extensions/moonshot/index.js";
@@ -94,7 +93,6 @@ function createDefaultProviderPlugins() {
     cloudflareAiGatewayPlugin,
     googlePlugin,
     huggingfacePlugin,
-    kimiCodingPlugin,
     minimaxPlugin,
     mistralPlugin,
     moonshotPlugin,
@@ -129,7 +127,6 @@ describe("applyAuthChoice", () => {
     "CLOUDFLARE_AI_GATEWAY_API_KEY",
     "MOONSHOT_API_KEY",
     "MISTRAL_API_KEY",
-    "KIMI_API_KEY",
     "GEMINI_API_KEY",
     "XIAOMI_API_KEY",
     "VENICE_API_KEY",
@@ -521,13 +518,6 @@ describe("applyAuthChoice", () => {
         expectedModelPrefix: "together/",
       },
       {
-        tokenProvider: "KIMI-CODING",
-        token: "sk-kimi-token-provider-test",
-        profileId: "kimi:default",
-        provider: "kimi",
-        expectedModelPrefix: "kimi/",
-      },
-      {
         tokenProvider: " GOOGLE  ",
         token: "sk-gemini-token-provider-test",
         profileId: "google:default",
@@ -599,13 +589,6 @@ describe("applyAuthChoice", () => {
       profileId: "mistral:default",
       provider: "mistral",
       modelPrefix: "mistral/",
-    },
-    {
-      authChoice: "kimi-code-api-key",
-      tokenProvider: "kimi-code",
-      profileId: "kimi:default",
-      provider: "kimi",
-      modelPrefix: "kimi/",
     },
     {
       authChoice: "xiaomi-api-key",

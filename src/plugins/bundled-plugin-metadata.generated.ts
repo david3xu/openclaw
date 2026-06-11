@@ -1388,48 +1388,6 @@ export const GENERATED_BUNDLED_PLUGIN_METADATA = [
     },
   },
   {
-    dirName: "kimi-coding",
-    idHint: "kimi",
-    source: {
-      source: "./index.ts",
-      built: "index.js",
-    },
-    packageName: "@openclaw/kimi-provider",
-    packageVersion: "2026.3.22",
-    packageDescription: "OpenClaw Kimi provider plugin",
-    packageManifest: {
-      extensions: ["./index.ts"],
-    },
-    manifest: {
-      id: "kimi",
-      configSchema: {
-        type: "object",
-        additionalProperties: false,
-        properties: {},
-      },
-      providers: ["kimi", "kimi-coding"],
-      providerAuthEnvVars: {
-        kimi: ["KIMI_API_KEY", "KIMICODE_API_KEY"],
-        "kimi-coding": ["KIMI_API_KEY", "KIMICODE_API_KEY"],
-      },
-      providerAuthChoices: [
-        {
-          provider: "kimi",
-          method: "api-key",
-          choiceId: "kimi-code-api-key",
-          choiceLabel: "Kimi Code API key",
-          groupId: "kimi-code",
-          groupLabel: "Kimi Code",
-          groupHint: "Dedicated coding endpoint",
-          optionKey: "kimiCodeApiKey",
-          cliFlag: "--kimi-code-api-key",
-          cliOption: "--kimi-code-api-key <key>",
-          cliDescription: "Kimi Code API key",
-        },
-      ],
-    },
-  },
-  {
     dirName: "line",
     idHint: "line",
     source: {
@@ -1471,6 +1429,29 @@ export const GENERATED_BUNDLED_PLUGIN_METADATA = [
         properties: {},
       },
       channels: ["line"],
+    },
+  },
+  {
+    dirName: "linkedin",
+    idHint: "linkedin",
+    source: {
+      source: "./index.ts",
+      built: "index.js",
+    },
+    packageName: "@openclaw/linkedin",
+    packageVersion: "2026.3.17",
+    packageDescription: "OpenClaw LinkedIn channel plugin",
+    packageManifest: {
+      extensions: ["./index.ts"],
+    },
+    manifest: {
+      id: "linkedin",
+      configSchema: {
+        type: "object",
+        additionalProperties: false,
+        properties: {},
+      },
+      channels: ["linkedin"],
     },
   },
   {

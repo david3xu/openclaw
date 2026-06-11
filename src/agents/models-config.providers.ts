@@ -2,7 +2,6 @@ import type { OpenClawConfig } from "../config/config.js";
 import { coerceSecretRef, resolveSecretInputRef } from "../config/types.secrets.js";
 import {
   buildAnthropicVertexProvider,
-  buildKimiCodingProvider,
   buildKilocodeProvider,
   buildModelStudioProvider,
   buildNvidiaProvider,
@@ -22,7 +21,6 @@ import { discoverBedrockModels } from "./bedrock-discovery.js";
 import { normalizeGoogleModelId, normalizeXaiModelId } from "./model-id-normalization.js";
 import { resolveOllamaApiBase } from "./models-config.providers.discovery.js";
 export {
-  buildKimiCodingProvider,
   buildKilocodeProvider,
   MODELSTUDIO_BASE_URL,
   MODELSTUDIO_DEFAULT_MODEL_ID,

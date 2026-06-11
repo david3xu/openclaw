@@ -14,8 +14,6 @@ export const BUNDLED_PROVIDER_AUTH_ENV_VAR_CANDIDATES = {
   google: ["GEMINI_API_KEY", "GOOGLE_API_KEY"],
   huggingface: ["HUGGINGFACE_HUB_TOKEN", "HF_TOKEN"],
   kilocode: ["KILOCODE_API_KEY"],
-  kimi: ["KIMI_API_KEY", "KIMICODE_API_KEY"],
-  "kimi-coding": ["KIMI_API_KEY", "KIMICODE_API_KEY"],
   minimax: ["MINIMAX_API_KEY"],
   "minimax-portal": ["MINIMAX_OAUTH_TOKEN", "MINIMAX_API_KEY"],
   mistral: ["MISTRAL_API_KEY"],

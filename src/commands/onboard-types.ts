@@ -20,7 +20,6 @@ export type BuiltInAuthChoice =
   | "cloudflare-ai-gateway-api-key"
   | "moonshot-api-key"
   | "moonshot-api-key-cn"
-  | "kimi-code-api-key"
   | "synthetic-api-key"
   | "venice-api-key"
   | "together-api-key"
@@ -130,7 +129,6 @@ export type OnboardOptions = {
   cloudflareAiGatewayGatewayId?: string;
   cloudflareAiGatewayApiKey?: string;
   moonshotApiKey?: string;
-  kimiCodeApiKey?: string;
   geminiApiKey?: string;
   zaiApiKey?: string;
   xiaomiApiKey?: string;

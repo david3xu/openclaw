@@ -55,8 +55,8 @@ async function runEnvProviderCase(params: {
 describe("models-config", () => {
   it("skips writing models.json when no env token or profile exists", async () => {
     await withTempHome(async (home) => {
-      await withTempEnv([...MODELS_CONFIG_IMPLICIT_ENV_VARS, "KIMI_API_KEY"], async () => {
-        unsetEnv([...MODELS_CONFIG_IMPLICIT_ENV_VARS, "KIMI_API_KEY"]);
+      await withTempEnv(MODELS_CONFIG_IMPLICIT_ENV_VARS, async () => {
+        unsetEnv(MODELS_CONFIG_IMPLICIT_ENV_VARS);
 
         const agentDir = path.join(home, "agent-empty");
         // ensureAuthProfileStore merges the main auth store into non-main dirs; point main at our temp dir.

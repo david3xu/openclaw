@@ -1293,7 +1293,7 @@ function wrapStreamRepairMalformedToolCallArguments(
                   if (!loggedRepairIndices.has(event.contentIndex)) {
                     loggedRepairIndices.add(event.contentIndex);
                     log.warn(
-                      `repairing Kimi tool call arguments after ${repair.trailingSuffix.length} trailing chars`,
+                      `repairing malformed tool call arguments after ${repair.trailingSuffix.length} trailing chars`,
                     );
                   }
                 } else {
@@ -1345,10 +1345,6 @@ export function wrapStreamFnRepairMalformedToolCallArguments(baseFn: StreamFn): 
     }
     return wrapStreamRepairMalformedToolCallArguments(maybeStream);
   };
-}
-
-function shouldRepairMalformedAnthropicToolCallArguments(provider?: string): boolean {
-  return normalizeProviderId(provider ?? "") === "kimi";
 }
 
 // ---------------------------------------------------------------------------
@@ -2395,15 +2391,6 @@ export async function runEmbeddedAttempt(
         activeSession.agent.streamFn,
         allowedToolNames,
       );
-
-      if (
-        params.model.api === "anthropic-messages" &&
-        shouldRepairMalformedAnthropicToolCallArguments(params.provider)
-      ) {
-        activeSession.agent.streamFn = wrapStreamFnRepairMalformedToolCallArguments(
-          activeSession.agent.streamFn,
-        );
-      }
 
       if (resolveToolCallArgumentsEncoding(params.model) === "html-entities") {
         activeSession.agent.streamFn = wrapStreamFnDecodeXaiToolCallArguments(

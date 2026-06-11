@@ -1503,7 +1503,7 @@ describe("wrapStreamFnRepairMalformedToolCallArguments", () => {
     expect(partialToolCall.arguments).toEqual({});
   });
 
-  it("does not repair tool arguments when trailing junk exceeds the Kimi-specific allowance", async () => {
+  it("does not repair tool arguments when trailing junk exceeds the repair allowance", async () => {
     const partialToolCall = { type: "toolCall", name: "read", arguments: {} };
     const streamedToolCall = { type: "toolCall", name: "read", arguments: {} };
     const partialMessage = { role: "assistant", content: [partialToolCall] };

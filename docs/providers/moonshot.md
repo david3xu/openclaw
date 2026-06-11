@@ -1,17 +1,16 @@
 ---
-summary: "Configure Moonshot K2 vs Kimi Coding (separate providers + keys)"
+summary: "Configure Moonshot K2 models and endpoints"
 read_when:
-  - You want Moonshot K2 (Moonshot Open Platform) vs Kimi Coding setup
-  - You need to understand separate endpoints, keys, and model refs
-  - You want copy/paste config for either provider
+  - You want Moonshot K2 setup
+  - You need Moonshot endpoints, keys, and model refs
+  - You want copy/paste config for Moonshot
 title: "Moonshot AI"
 ---
 
 # Moonshot AI (Kimi)
 
 Moonshot provides the Kimi API with OpenAI-compatible endpoints. Configure the
-provider and set the default model to `moonshot/kimi-k2.5`, or use
-Kimi Coding with `kimi-coding/k2p5`.
+provider and set the default model to `moonshot/kimi-k2.5`.
 
 Current Kimi K2 model IDs:
 
@@ -28,14 +27,6 @@ Current Kimi K2 model IDs:
 ```bash
 openclaw onboard --auth-choice moonshot-api-key
 ```
-
-Kimi Coding:
-
-```bash
-openclaw onboard --auth-choice kimi-code-api-key
-```
-
-Note: Moonshot and Kimi Coding are separate providers. Keys are not interchangeable, endpoints differ, and model refs differ (Moonshot uses `moonshot/...`, Kimi Coding uses `kimi-coding/...`).
 
 ## Config snippet (Moonshot API)
 
@@ -118,25 +109,9 @@ Note: Moonshot and Kimi Coding are separate providers. Keys are not interchangea
 }
 ```
 
-## Kimi Coding
-
-```json5
-{
-  env: { KIMI_API_KEY: "sk-..." },
-  agents: {
-    defaults: {
-      model: { primary: "kimi-coding/k2p5" },
-      models: {
-        "kimi-coding/k2p5": { alias: "Kimi K2.5" },
-      },
-    },
-  },
-}
-```
-
 ## Notes
 
-- Moonshot model refs use `moonshot/<modelId>`. Kimi Coding model refs use `kimi-coding/<modelId>`.
+- Moonshot model refs use `moonshot/<modelId>`.
 - Override pricing and context metadata in `models.providers` if needed.
 - If Moonshot publishes different context limits for a model, adjust
   `contextWindow` accordingly.

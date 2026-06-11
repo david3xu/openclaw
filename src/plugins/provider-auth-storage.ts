@@ -81,18 +81,6 @@ export async function setMoonshotApiKey(
   });
 }
 
-export async function setKimiCodingApiKey(
-  key: SecretInput,
-  agentDir?: string,
-  options?: ApiKeyStorageOptions,
-) {
-  upsertAuthProfile({
-    profileId: "kimi:default",
-    credential: buildApiKeyCredential("kimi", key, undefined, options),
-    agentDir: resolveAuthAgentDir(agentDir),
-  });
-}
-
 export async function setVolcengineApiKey(
   key: SecretInput,
   agentDir?: string,

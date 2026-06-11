@@ -8,10 +8,6 @@ import {
 } from "./provider-model-kilocode.js";
 import { MINIMAX_DEFAULT_MODEL_ID, MINIMAX_TEXT_MODEL_CATALOG } from "./provider-model-minimax.js";
 
-const KIMI_CODING_BASE_URL = "https://api.kimi.com/coding/";
-const KIMI_CODING_MODEL_ID = "kimi-code";
-const KIMI_CODING_MODEL_REF = `kimi/${KIMI_CODING_MODEL_ID}`;
-
 const DEFAULT_MINIMAX_BASE_URL = "https://api.minimax.io/v1";
 const MINIMAX_API_BASE_URL = "https://api.minimax.io/anthropic";
 const MINIMAX_CN_API_BASE_URL = "https://api.minimaxi.com/anthropic";
@@ -289,9 +285,6 @@ export {
   ZAI_DEFAULT_COST,
   ZAI_DEFAULT_MODEL_ID,
   ZAI_GLOBAL_BASE_URL,
-  KIMI_CODING_BASE_URL,
-  KIMI_CODING_MODEL_ID,
-  KIMI_CODING_MODEL_REF,
   KILOCODE_DEFAULT_CONTEXT_WINDOW,
   KILOCODE_DEFAULT_COST,
   KILOCODE_DEFAULT_MAX_TOKENS,

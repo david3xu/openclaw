@@ -113,20 +113,6 @@ describe("resolveTranscriptPolicy", () => {
       modelId: "mistral-large-latest",
       preserveSignatures: false,
     },
-    {
-      title: "Kimi provider",
-      provider: "kimi",
-      modelId: "kimi-code",
-      modelApi: "anthropic-messages" as const,
-      preserveSignatures: false,
-    },
-    {
-      title: "kimi-code alias",
-      provider: "kimi-code",
-      modelId: "kimi-code",
-      modelApi: "anthropic-messages" as const,
-      preserveSignatures: false,
-    },
   ])("sets preserveSignatures for $title (#32526, #39798)", ({ preserveSignatures, ...input }) => {
     const policy = resolveTranscriptPolicy(input);
     expect(policy.preserveSignatures).toBe(preserveSignatures);

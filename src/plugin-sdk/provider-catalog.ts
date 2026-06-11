@@ -16,7 +16,6 @@ export {
   buildBytePlusProvider,
 } from "../../extensions/byteplus/provider-catalog.js";
 export { buildHuggingfaceProvider } from "../../extensions/huggingface/provider-catalog.js";
-export { buildKimiCodingProvider } from "../../extensions/kimi-coding/provider-catalog.js";
 export {
   buildKilocodeProvider,
   buildKilocodeProviderWithDiscovery,

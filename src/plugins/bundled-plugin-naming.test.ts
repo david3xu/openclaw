@@ -27,10 +27,7 @@ type BundledPluginRecord = {
 };
 
 const EXTENSIONS_ROOT = path.resolve(process.cwd(), "extensions");
-const DIR_ID_EXCEPTIONS = new Map<string, string>([
-  // Historical directory name kept until a wider repo cleanup is worth the churn.
-  ["kimi-coding", "kimi"],
-]);
+const DIR_ID_EXCEPTIONS = new Map<string, string>();
 const ALLOWED_PACKAGE_SUFFIXES = [
   "",
   "-provider",

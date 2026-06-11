@@ -8,7 +8,6 @@ vi.mock("../../agents/model-catalog.js", () => ({
   loadModelCatalog: vi.fn(async () => [
     { provider: "anthropic", id: "claude-opus-4-5", name: "Claude Opus 4.5" },
     { provider: "inferencer", id: "deepseek-v3-4bit-mlx", name: "DeepSeek V3" },
-    { provider: "kimi", id: "kimi-code", name: "Kimi Code" },
     { provider: "openai", id: "gpt-4o-mini", name: "GPT-4o mini" },
     { provider: "openai", id: "gpt-4o", name: "GPT-4o" },
     { provider: "xai", id: "grok-4", name: "Grok 4" },
@@ -335,13 +334,13 @@ describe("createModelSelectionState respects session model override", () => {
   it("applies session modelOverride when set", async () => {
     const state = await resolveState(
       makeEntry({
-        providerOverride: "kimi-coding",
-        modelOverride: "kimi-code",
+        providerOverride: "openai",
+        modelOverride: "gpt-4o",
       }),
     );
 
-    expect(state.provider).toBe("kimi");
-    expect(state.model).toBe("kimi-code");
+    expect(state.provider).toBe("openai");
+    expect(state.model).toBe("gpt-4o");
   });
 
   it("falls back to default when no modelOverride is set", async () => {
@@ -355,8 +354,8 @@ describe("createModelSelectionState respects session model override", () => {
     // From issue #14783: stored override should beat last-used fallback model.
     const state = await resolveState(
       makeEntry({
-        model: "kimi-code",
-        modelProvider: "kimi",
+        model: "gpt-4o",
+        modelProvider: "openai",
         contextTokens: 262_000,
         providerOverride: "anthropic",
         modelOverride: "claude-opus-4-5",

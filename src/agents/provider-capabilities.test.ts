@@ -99,23 +99,6 @@ describe("resolveProviderCapabilities", () => {
     });
   });
 
-  it("normalizes kimi aliases to the same capability set", () => {
-    expect(resolveProviderCapabilities("kimi")).toEqual(resolveProviderCapabilities("kimi-code"));
-    expect(resolveProviderCapabilities("kimi-code")).toEqual({
-      anthropicToolSchemaMode: "native",
-      anthropicToolChoiceMode: "native",
-      openAiPayloadNormalizationMode: "default",
-      providerFamily: "default",
-      preserveAnthropicThinkingSignatures: false,
-      openAiCompatTurnValidation: true,
-      geminiThoughtSignatureSanitization: false,
-      transcriptToolCallIdMode: "default",
-      transcriptToolCallIdModelHints: [],
-      geminiThoughtSignatureModelHints: [],
-      dropThinkingBlockModelHints: [],
-    });
-  });
-
   it("flags providers that opt out of OpenAI-compatible turn validation", () => {
     expect(supportsOpenAiCompatTurnValidation("openrouter")).toBe(false);
     expect(supportsOpenAiCompatTurnValidation("opencode")).toBe(false);
@@ -150,10 +133,9 @@ describe("resolveProviderCapabilities", () => {
     expect(resolveTranscriptToolCallIdMode("mistral", "mistral-large-latest")).toBe("strict9");
   });
 
-  it("treats kimi aliases as native anthropic tool payload providers", () => {
-    expect(requiresOpenAiCompatibleAnthropicToolPayload("kimi")).toBe(false);
-    expect(requiresOpenAiCompatibleAnthropicToolPayload("kimi-code")).toBe(false);
+  it("treats Anthropic providers as native anthropic tool payload providers", () => {
     expect(requiresOpenAiCompatibleAnthropicToolPayload("anthropic")).toBe(false);
+    expect(requiresOpenAiCompatibleAnthropicToolPayload("amazon-bedrock")).toBe(false);
   });
 
   it("tracks provider families and model-specific transcript quirks in the registry", () => {

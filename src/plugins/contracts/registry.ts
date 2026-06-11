@@ -13,7 +13,6 @@ import googlePlugin from "../../../extensions/google/index.js";
 import groqPlugin from "../../../extensions/groq/index.js";
 import huggingFacePlugin from "../../../extensions/huggingface/index.js";
 import kilocodePlugin from "../../../extensions/kilocode/index.js";
-import kimiCodingPlugin from "../../../extensions/kimi-coding/index.js";
 import microsoftPlugin from "../../../extensions/microsoft/index.js";
 import minimaxPlugin from "../../../extensions/minimax/index.js";
 import mistralPlugin from "../../../extensions/mistral/index.js";
@@ -231,9 +230,7 @@ function loadProviderContractPluginIds(): string[] {
 }
 
 function loadProviderContractCompatPluginIds(): string[] {
-  return loadProviderContractPluginIds().map((pluginId) =>
-    pluginId === "kimi-coding" ? "kimi" : pluginId,
-  );
+  return loadProviderContractPluginIds();
 }
 
 export const providerContractRegistry: ProviderContractEntry[] = createLazyArrayView(
@@ -364,7 +361,6 @@ const bundledProviderPlugins = dedupePlugins([
   googlePlugin,
   huggingFacePlugin,
   kilocodePlugin,
-  kimiCodingPlugin,
   minimaxPlugin,
   mistralPlugin,
   modelStudioPlugin,

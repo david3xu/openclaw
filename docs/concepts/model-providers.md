@@ -105,7 +105,7 @@ Current bundled examples:
 - `zai`: GLM-5 forward-compat fallback, `tool_stream` defaults, cache-TTL
   policy, binary-thinking/live-model policy, and usage auth + quota fetching
 - `mistral`, `opencode`, and `opencode-go`: plugin-owned capability metadata
-- `byteplus`, `cloudflare-ai-gateway`, `huggingface`, `kimi-coding`,
+- `byteplus`, `cloudflare-ai-gateway`, `huggingface`,
   `modelstudio`, `nvidia`, `qianfan`, `synthetic`, `together`, `venice`,
   `vercel-ai-gateway`, and `volcengine`: plugin-owned catalogs only
 - `qwen-portal`: plugin-owned catalog, OAuth login, and OAuth refresh
@@ -260,7 +260,6 @@ See [/providers/kilocode](/providers/kilocode) for setup details.
 - Example model: `kilocode/anthropic/claude-opus-4.6`
 - MiniMax: `minimax` (`MINIMAX_API_KEY`)
 - Moonshot: `moonshot` (`MOONSHOT_API_KEY`)
-- Kimi Coding: `kimi-coding` (`KIMI_API_KEY` or `KIMICODE_API_KEY`)
 - Qianfan: `qianfan` (`QIANFAN_API_KEY`)
 - Model Studio: `modelstudio` (`MODELSTUDIO_API_KEY`)
 - NVIDIA: `nvidia` (`NVIDIA_API_KEY`)
@@ -327,23 +326,6 @@ Kimi K2 model IDs:
         models: [{ id: "kimi-k2.5", name: "Kimi K2.5" }],
       },
     },
-  },
-}
-```
-
-### Kimi Coding
-
-Kimi Coding uses Moonshot AI's Anthropic-compatible endpoint:
-
-- Provider: `kimi-coding`
-- Auth: `KIMI_API_KEY`
-- Example model: `kimi-coding/k2p5`
-
-```json5
-{
-  env: { KIMI_API_KEY: "sk-..." },
-  agents: {
-    defaults: { model: { primary: "kimi-coding/k2p5" } },
   },
 }
 ```

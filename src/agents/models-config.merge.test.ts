@@ -74,8 +74,8 @@ describe("models-config merge helpers", () => {
         headers: { "User-Agent": "claude-code/0.1.0" },
         models: [
           {
-            id: "kimi-code",
-            name: "Kimi Code",
+            id: "provider-model",
+            name: "Provider Model",
             input: ["text", "image"],
             reasoning: true,
           },
@@ -84,11 +84,11 @@ describe("models-config merge helpers", () => {
       {
         baseUrl: "https://api.example.com",
         api: "anthropic-messages",
-        headers: { "X-Kimi-Tenant": "tenant-a" },
+        headers: { "X-Tenant": "tenant-a" },
         models: [
           {
-            id: "kimi-code",
-            name: "Kimi Code",
+            id: "provider-model",
+            name: "Provider Model",
             input: ["text", "image"],
             reasoning: true,
           },
@@ -98,7 +98,7 @@ describe("models-config merge helpers", () => {
 
     expect(merged.headers).toEqual({
       "User-Agent": "claude-code/0.1.0",
-      "X-Kimi-Tenant": "tenant-a",
+      "X-Tenant": "tenant-a",
     });
   });
 
